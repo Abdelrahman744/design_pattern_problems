@@ -1,14 +1,7 @@
-// ============================================================================
-// Windows Factory — concrete products and factory for Windows platform
-// ============================================================================
-
 using System;
 
 namespace DesignPatternsCollection.AbstractFactory
 {
-    // ── Windows-specific concrete products ──
-
-    /// <summary>A Windows-styled button with the classic look and feel.</summary>
     public class WindowsButton : IButton
     {
         public void Render()
@@ -22,7 +15,6 @@ namespace DesignPatternsCollection.AbstractFactory
         }
     }
 
-    /// <summary>A Windows-styled checkbox with a square check mark.</summary>
     public class WindowsCheckbox : ICheckbox
     {
         public void Render()
@@ -36,13 +28,6 @@ namespace DesignPatternsCollection.AbstractFactory
         }
     }
 
-    // ── Windows Factory ──
-
-    /// <summary>
-    /// Produces exclusively Windows-styled widgets.
-    /// Both CreateButton() and CreateCheckbox() return Windows variants,
-    /// guaranteeing a consistent native Windows look.
-    /// </summary>
     public class WindowsFactory : IGUIFactory
     {
         public IButton CreateButton() => new WindowsButton();

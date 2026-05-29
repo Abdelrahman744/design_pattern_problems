@@ -1,18 +1,7 @@
-// ============================================================================
-// Concrete Strategies — one class per payment method
-// ============================================================================
-// Each class encapsulates the full algorithm for one payment type.
-// They are completely independent of each other and of the checkout system.
-// ============================================================================
-
 using System;
 
 namespace DesignPatternsCollection.Strategy
 {
-    /// <summary>
-    /// Processes payment via a traditional credit card.
-    /// In production this would integrate with Stripe, Braintree, etc.
-    /// </summary>
     public class CreditCardStrategy : IPaymentStrategy
     {
         private readonly string _cardNumber;
@@ -24,16 +13,12 @@ namespace DesignPatternsCollection.Strategy
 
         public void Pay(double amount)
         {
-            // Mask all but the last 4 digits for security
             string masked = new string('*', _cardNumber.Length - 4)
                           + _cardNumber[^4..];
             Console.WriteLine($"  [Credit Card] Charged ${amount:F2} to card {masked}.");
         }
     }
 
-    /// <summary>
-    /// Processes payment via PayPal using the customer's email.
-    /// </summary>
     public class PayPalStrategy : IPaymentStrategy
     {
         private readonly string _email;
@@ -49,9 +34,6 @@ namespace DesignPatternsCollection.Strategy
         }
     }
 
-    /// <summary>
-    /// Processes payment via Apple Pay (uses a device token in production).
-    /// </summary>
     public class ApplePayStrategy : IPaymentStrategy
     {
         public void Pay(double amount)
@@ -60,9 +42,6 @@ namespace DesignPatternsCollection.Strategy
         }
     }
 
-    /// <summary>
-    /// Processes payment via cryptocurrency (e.g., Bitcoin wallet address).
-    /// </summary>
     public class CryptoStrategy : IPaymentStrategy
     {
         private readonly string _walletAddress;
