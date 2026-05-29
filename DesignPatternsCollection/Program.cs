@@ -19,7 +19,7 @@
 // │  3  │ Decorator        │ Pizzeria point-of-sale customisation        │
 // │  4  │ Factory Method   │ Logistics transport dispatching             │
 // │  5  │ Abstract Factory │ Cross-platform UI rendering                 │
-// │  6  │ Singleton        │ API rate limiter                            │
+// │  6  │ Singleton        │ Game scoreboard                             │
 // └─────┴──────────────────┴──────────────────────────────────────────────┘
 // ============================================================================
 
@@ -70,7 +70,7 @@ namespace DesignPatternsCollection
             AbstractFactoryDemo.Run();
             PrintSeparator();
 
-            // 6. SINGLETON — API Rate Limiter
+            // 6. SINGLETON — Game Scoreboard
             SingletonDemo.Run();
 
             // ── Footer ──
