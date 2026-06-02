@@ -2,11 +2,13 @@ using System;
 
 namespace DesignPatternsCollection.FactoryMethod
 {
+    // Product Interface — all transport types must implement Deliver().
     public interface ITransport
     {
         void Deliver();
     }
 
+    // Concrete Product — delivers cargo by road.
     public class Truck : ITransport
     {
         public void Deliver()
@@ -15,6 +17,7 @@ namespace DesignPatternsCollection.FactoryMethod
         }
     }
 
+    // Concrete Product — delivers cargo by sea.
     public class Ship : ITransport
     {
         public void Deliver()

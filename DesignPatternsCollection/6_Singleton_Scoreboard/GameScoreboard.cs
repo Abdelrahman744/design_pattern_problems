@@ -2,6 +2,7 @@ using System;
 
 namespace DesignPatternsCollection.Singleton
 {
+    // Singleton — only one instance exists; accessed via GetInstance().
     public sealed class GameScoreboard
     {
         private static GameScoreboard? _instance;
@@ -9,12 +10,14 @@ namespace DesignPatternsCollection.Singleton
         private readonly object _scoreLock = new object();
         private int _score;
 
+        // Private constructor — prevents external instantiation.
         private GameScoreboard()
         {
             _score = 0;
             Console.WriteLine("  [GameScoreboard] 🎮 Singleton instance created. Score starts at 0.");
         }
 
+        // Thread-safe access using double-checked locking.
         public static GameScoreboard GetInstance()
         {
             if (_instance == null)
@@ -30,6 +33,7 @@ namespace DesignPatternsCollection.Singleton
             return _instance;
         }
 
+        // Adds points to the shared score (thread-safe).
         public void AddPoints(int points)
         {
             lock (_scoreLock)
@@ -44,6 +48,7 @@ namespace DesignPatternsCollection.Singleton
             get { lock (_scoreLock) { return _score; } }
         }
 
+        // Resets the singleton for testing purposes only.
         internal static void ResetForTesting()
         {
             lock (_instanceLock)
@@ -53,6 +58,7 @@ namespace DesignPatternsCollection.Singleton
         }
     }
 
+    // Game object — collects coins and updates the singleton scoreboard.
     public class Coin
     {
         private readonly string _location;
@@ -69,6 +75,7 @@ namespace DesignPatternsCollection.Singleton
         }
     }
 
+    // Game object — defeats enemies and updates the singleton scoreboard.
     public class Enemy
     {
         private readonly string _name;

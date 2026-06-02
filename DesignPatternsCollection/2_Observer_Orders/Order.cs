@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace DesignPatternsCollection.Observer
 {
+    // Subject — maintains a list of observers and notifies them on status changes.
     public class Order
     {
         private readonly List<IOrderObserver> _observers = new List<IOrderObserver>();
@@ -18,18 +19,21 @@ namespace DesignPatternsCollection.Observer
             Console.WriteLine($"  Order [{OrderId}] created with status '{Status}'.");
         }
 
+        // Register an observer to receive updates.
         public void Subscribe(IOrderObserver observer)
         {
             _observers.Add(observer);
             Console.WriteLine($"  + Observer '{observer.GetType().Name}' subscribed to Order [{OrderId}].");
         }
 
+        // Remove an observer so it stops receiving updates.
         public void Unsubscribe(IOrderObserver observer)
         {
             _observers.Remove(observer);
             Console.WriteLine($"  - Observer '{observer.GetType().Name}' unsubscribed from Order [{OrderId}].");
         }
 
+        // Change status and notify all registered observers.
         public void SetStatus(string newStatus)
         {
             Status = newStatus;
@@ -38,6 +42,7 @@ namespace DesignPatternsCollection.Observer
             NotifyAll();
         }
 
+        // Loop through observers and call Update() on each one.
         private void NotifyAll()
         {
             foreach (var observer in _observers)

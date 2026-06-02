@@ -1,5 +1,7 @@
+// Concrete Decorators — each adds a topping, extending description and cost.
 namespace DesignPatternsCollection.Decorator
 {
+    // Adds extra cheese topping (+$1.25).
     public class CheeseDecorator : PizzaDecorator
     {
         public CheeseDecorator(IPizza pizza) : base(pizza) { }
@@ -11,6 +13,7 @@ namespace DesignPatternsCollection.Decorator
             => _pizza.GetCost() + 1.25;
     }
 
+    // Adds pepperoni topping (+$2.00).
     public class PepperoniDecorator : PizzaDecorator
     {
         public PepperoniDecorator(IPizza pizza) : base(pizza) { }
@@ -22,6 +25,7 @@ namespace DesignPatternsCollection.Decorator
             => _pizza.GetCost() + 2.00;
     }
 
+    // Adds olive topping (+$0.75).
     public class OliveDecorator : PizzaDecorator
     {
         public OliveDecorator(IPizza pizza) : base(pizza) { }

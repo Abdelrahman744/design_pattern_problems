@@ -2,6 +2,7 @@ using System;
 
 namespace DesignPatternsCollection.Strategy
 {
+    // Demo — shows strategies being swapped at runtime without if/else blocks.
     public static class StrategyDemo
     {
         public static void Run()
@@ -11,6 +12,7 @@ namespace DesignPatternsCollection.Strategy
             Console.WriteLine("╚══════════════════════════════════════════════════════════════╝");
             Console.WriteLine();
 
+            // Start with credit card, then swap strategies on the fly.
             Console.WriteLine("  Scenario 1: Customer selects Credit Card at checkout.");
             var checkout = new CheckoutService(
                 new CreditCardStrategy("4111222233334444")

@@ -1,7 +1,9 @@
 using System;
 
+// Concrete Strategies — each class encapsulates a different payment algorithm.
 namespace DesignPatternsCollection.Strategy
 {
+    // Pays via credit card, masks the card number for display.
     public class CreditCardStrategy : IPaymentStrategy
     {
         private readonly string _cardNumber;
@@ -19,6 +21,7 @@ namespace DesignPatternsCollection.Strategy
         }
     }
 
+    // Pays via PayPal using the linked email account.
     public class PayPalStrategy : IPaymentStrategy
     {
         private readonly string _email;
@@ -34,6 +37,7 @@ namespace DesignPatternsCollection.Strategy
         }
     }
 
+    // Pays via Apple Pay with biometric confirmation.
     public class ApplePayStrategy : IPaymentStrategy
     {
         public void Pay(double amount)
@@ -42,6 +46,7 @@ namespace DesignPatternsCollection.Strategy
         }
     }
 
+    // Pays via cryptocurrency using a wallet address.
     public class CryptoStrategy : IPaymentStrategy
     {
         private readonly string _walletAddress;

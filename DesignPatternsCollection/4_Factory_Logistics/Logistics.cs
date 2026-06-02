@@ -2,10 +2,13 @@ using System;
 
 namespace DesignPatternsCollection.FactoryMethod
 {
+    // Creator — declares the Factory Method that subclasses must override.
     public abstract class Logistics
     {
+        // Factory Method — subclasses decide which transport to create.
         public abstract ITransport CreateTransport();
 
+        // Uses the factory method, then plans the delivery.
         public void PlanDelivery()
         {
             ITransport transport = CreateTransport();
@@ -15,6 +18,7 @@ namespace DesignPatternsCollection.FactoryMethod
         }
     }
 
+    // Concrete Creator — factory method returns a Truck.
     public class RoadLogistics : Logistics
     {
         public override ITransport CreateTransport()
@@ -24,6 +28,7 @@ namespace DesignPatternsCollection.FactoryMethod
         }
     }
 
+    // Concrete Creator — factory method returns a Ship.
     public class SeaLogistics : Logistics
     {
         public override ITransport CreateTransport()

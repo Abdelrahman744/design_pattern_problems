@@ -2,6 +2,7 @@ using System;
 
 namespace DesignPatternsCollection.Singleton
 {
+    // Demo — proves only one scoreboard exists and multiple objects share it.
     public static class SingletonDemo
     {
         public static void Run()
@@ -11,6 +12,7 @@ namespace DesignPatternsCollection.Singleton
             Console.WriteLine("╚══════════════════════════════════════════════════════════════╝");
             Console.WriteLine();
 
+            // Prove both references point to the exact same instance.
             Console.WriteLine("  ── Proof: GetInstance() returns the same object ──");
             var board1 = GameScoreboard.GetInstance();
             var board2 = GameScoreboard.GetInstance();
@@ -18,6 +20,7 @@ namespace DesignPatternsCollection.Singleton
             Console.WriteLine($"  (Same hash: {board1.GetHashCode()} == {board2.GetHashCode()})");
             Console.WriteLine();
 
+            // Simulate a game — Coins and Enemies update the same scoreboard.
             Console.WriteLine("  ── Simulating a game: collecting coins & defeating enemies ──");
             Console.WriteLine();
 
@@ -49,6 +52,7 @@ namespace DesignPatternsCollection.Singleton
 
             Console.WriteLine();
 
+            // Verify the final score matches the expected total.
             int expectedScore = (10 * 4) + (25 * 2) + 100;
             int actualScore   = GameScoreboard.GetInstance().Score;
 
@@ -61,4 +65,3 @@ namespace DesignPatternsCollection.Singleton
         }
     }
 }
-

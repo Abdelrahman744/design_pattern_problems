@@ -1,5 +1,6 @@
 namespace DesignPatternsCollection.Decorator
 {
+    // Abstract Decorator — wraps an IPizza and delegates calls to it by default.
     public abstract class PizzaDecorator : IPizza
     {
         protected readonly IPizza _pizza;

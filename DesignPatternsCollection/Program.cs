@@ -3,7 +3,7 @@ using DesignPatternsCollection.Strategy;
 using DesignPatternsCollection.Observer;
 using DesignPatternsCollection.Decorator;
 using DesignPatternsCollection.FactoryMethod;
-using DesignPatternsCollection.AbstractFactory;
+using DesignPatternsCollection.Adapter;
 using DesignPatternsCollection.Singleton;
 
 namespace DesignPatternsCollection
@@ -32,7 +32,7 @@ namespace DesignPatternsCollection
             FactoryMethodDemo.Run();
             PrintSeparator();
 
-            AbstractFactoryDemo.Run();
+            AdapterDemo.Run();
             PrintSeparator();
 
             SingletonDemo.Run();
